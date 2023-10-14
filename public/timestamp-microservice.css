@@ -1,0 +1,68 @@
+*{
+	box-sizing:border-box;
+}
+body{
+	margin:0px;
+	background:black;
+	color:white;
+	font-family:system-ui;
+	overflow:hidden;
+}
+.container{
+	max-width:960px;
+	padding-inline:20px;
+	margin-inline:auto;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+}
+h1,h2{
+	color:orange;
+}
+h1{
+	padding-top:20px;
+}
+hr{
+	background:white;
+	width:100%;
+	height:5px;
+}
+a{
+	color:lightgrey;
+	text-decoration:none;
+}
+a:visited{
+	color:orange;
+}
+a:active{
+	color:white;
+}
+h2 ~ a{
+	padding-block:5px;
+}
+form{
+	margin-top:55px;
+}
+code{
+	font-size:1rem;
+}
+footer{
+	display:flex;
+	justify-content:center;
+	margin-top:60px;
+}
+.output{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	height:80px;
+	justify-content:center;
+	width:100%;
+}
+.output p{
+	font-size:1.2rem;
+}
+p{
+	margin:5px 0px;
+}

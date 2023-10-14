@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Timestamp Microservice</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" href="../public/timestamp-microservice.css"/>
+</head>
+<body>
+	<main>
+		<div class="container">
+			<h1>Timestamp Microservice</h1>
+			<hr/>
+			<h2>Example Usage:</h2>
+			<a href="/api/2015-12-25">[project url]/api/2015-12-25</a>
+			<a href="/api/1451001600000">[project url]/api/1451001600000</a>
+			<a href="/api/X323-01-91a">[project url]/api/X323-01-91a</a>
+			<h2>Example Usage:</h2>
+			<p><code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code></p>
+			<form>
+				<label>Enter date:
+					<input type="date"/>
+					<input type="submit" value="Submit"/>
+				</label>
+			</form>
+			<h2>Output:</h2>
+			<div class="output">
+				<p id="display-unix"></p>
+				<p id="display-utc"></p>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<div class="container">
+			<p>By <a href="https://codepen.io/your-work" title="Eddie Codepen">Eddie</a> per freeCodeCamp.org Timestamp Microservice test</p>
+		</div>
+	</footer>
+
+<script>
+const form = document.querySelector("form");
+form.onsubmit = function(event){
+	event.preventDefault();
+	const input = document.querySelector("input");
+	fetch(`http://localhost:3000/api/${input.value}`)
+	.then((json)=> json.json())
+	.then((data)=> displayData(data))
+}
+function displayData(data){
+	const unix = document.querySelector("#display-unix");
+	unix.textContent = "";
+	unix.textContent = "UNIX: " + data.unix;
+	const utc = document.querySelector("#display-utc");
+	utc.textContent = "";
+	utc.textContent = "UTC: " + data.utc;
+
+}
+
+</script>
+</body>
+</html>
